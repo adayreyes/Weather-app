@@ -1,5 +1,5 @@
 <template>
-    <main v-if="location && current">
+    <main v-if="location && current" >
         <header>
             <h2>{{location ? location.name : ""}}</h2>
             <span class="bold">Last updated</span>
@@ -20,14 +20,12 @@
 <script>
 
 export default{
-    props: ["current","location"]
-    
+    props: ["current","location","condition"]
     }
 </script>
 
 <style scoped>
     main{
-        background-color: aliceblue;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -46,6 +44,8 @@ export default{
         margin-left: 2rem;
         font-size: 1.2rem;
     }
+
+    
 
     h2{
         margin: 0;

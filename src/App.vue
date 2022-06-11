@@ -9,23 +9,25 @@ export default{
 }
 
 </script>
-
-<template>
-<header class="main-header">
-  <h1>Weather</h1>
+<template >
+<main :class="weather_json? weather_json.current.condition.text : ''">
+  <header class="main-header">
+    <h1>Weather</h1>
+    <section>
+      <input @keyup.enter="getCity()" type="text" id="city" v-model="city">
+      <button @click="getCity()">Search</button>
+    </section>
+  </header>
+  
   <section>
-    <input @keyup.enter="getCity()" type="text" id="city" v-model="city">
-    <button @click="getCity()">Search</button>
+    <HomeComponent :current="weather_json.current" :condition="weather_json ? weather_json.current.condition.text : ''" :location="weather_json.location"/>
   </section>
-</header>
 
-<main>
-  <HomeComponent :current="weather_json.current" :location="weather_json.location"/>
 </main>
 </template>
 
 <style>
-
+  @import url(./assets/base.css);
   body{
     margin: 0;
     padding: 0;
@@ -49,7 +51,6 @@ export default{
   }
 
   .main-header{
-    background-color: aliceblue;
     width: 100%;
     height: 150px;
     text-align: center;
