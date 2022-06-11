@@ -8,6 +8,7 @@
         <section>
             <img :src="current ? current.condition.icon : ''" alt="sol">
             <span class="temperature">{{current ? current.temp_c : ""}}°C</span>
+            <p>Feels like <b>{{current ? current.feelslike_c : ""}}°C</b></p>
         </section>
     </main>
     <section class="else-section" v-else>
@@ -39,6 +40,11 @@ export default{
         display: flex;
         flex-direction: column;
         gap: .3rem;
+    }
+
+    p{
+        margin-left: 2rem;
+        font-size: 1.2rem;
     }
 
     h2{
