@@ -9,7 +9,7 @@ export default{
 
     methods: {
         getCity() {
-           let url = `http://api.weatherapi.com/v1/current.json?key=${this.key}&q=${this.city}`
+           let url = `http://api.weatherapi.com/v1/current.json?key=${this.key}&q=${this.city}`;
            this.getResponse(url);
            this.city = "";
         },

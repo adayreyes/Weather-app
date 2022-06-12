@@ -10,7 +10,8 @@ export default{
 
 </script>
 <template >
-<main :class="weather_json? weather_json.current.condition.text : ''">
+<div class="bg-image" :class="weather_json.current? weather_json.current.condition.text : ''"></div>
+<main class="main-container" >
   <header class="main-header">
     <h1>Weather</h1>
     <section>
@@ -20,39 +21,13 @@ export default{
   </header>
   
   <section>
-    <HomeComponent :current="weather_json.current" :condition="weather_json ? weather_json.current.condition.text : ''" :location="weather_json.location"/>
+    <HomeComponent v-if="weather_json" :current="weather_json.current" :location="weather_json.location"/>
   </section>
 
 </main>
 </template>
 
-<style>
+<style scoped>
   @import url(./assets/base.css);
-  body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  #app{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .bold{
-    font-weight: bold;
-  }
-
-  main{
-    height: 100%;
-    width: 100%;
-  }
-
-  .main-header{
-    width: 100%;
-    height: 150px;
-    text-align: center;
-  }
+  
 </style>

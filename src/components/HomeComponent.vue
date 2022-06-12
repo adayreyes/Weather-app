@@ -20,7 +20,7 @@
 <script>
 
 export default{
-    props: ["current","location","condition"]
+    props: ["current","location"]
     }
 </script>
 
@@ -29,6 +29,7 @@ export default{
         display: flex;
         align-items: center;
         flex-direction: column;
+        
     }
 
     header{
